@@ -51,7 +51,7 @@ function RenderCampsite(props) {
                         onPress={() => props.onShowModal()}
                     />
                 </View>
-​
+
             </Card>
         );
     }
@@ -62,13 +62,13 @@ function RenderComments({ comments }) {
 
     const renderCommentItem = ({ item }) => {
         return (
-            <View style={{ margin: 10 }}> 
-               
+            <View style={{ margin: 10 }}>
+
                 <Text style={{ fontSize: 14 }}>{item.text}</Text>
-                <Rating imageSize={10} readonly startingValue={item.rating} 
-                style={{alignItems:'flex-start', paddingVertical: 10}}>Stars</Rating>
+                <Rating imageSize={10} readonly startingValue={item.rating}
+                    style={{ alignItems: 'flex-start', paddingVertical: 10 }}>Stars</Rating>
                 <Text style={{ fontSize: 12 }}>{`--${item.author}, ${item.date} `}</Text>
-​
+
             </View>
         );
     };
@@ -112,10 +112,16 @@ class CampsiteInfo extends Component {
         this.props.postFavorite(campsiteId);
     }
 
-    handleComment(campsiteId) { 
-        postComment({campsiteId, rating, text})
+    handleComment(campsiteId) {
+        this.props.postComment(
+            campsiteId,
+            this.state.rating,
+            this.state.author,
+            this.state.text
+        );
         this.toggleModal();
     }
+
 
     static navigationOptions = {
         title: 'Campsite Information'

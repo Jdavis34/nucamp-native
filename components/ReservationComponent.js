@@ -21,7 +21,7 @@ class Reservation extends Component {
     }
 
     toggleModal() {
-        this.setState({showModal: !this.state.showModal});
+        this.setState({ showModal: !this.state.showModal });
     }
 
     handleReservation() {
@@ -29,16 +29,16 @@ class Reservation extends Component {
         this.toggleModal();
     }
 
-        resetForm() {
-            this.setState({
-                campers: 1,
-                hikeIn: false,
-                date: new Date(),
-                showCalendar: false,
-                showModal: false
-            });
-        }    
-       
+    resetForm() {
+        this.setState({
+            campers: 1,
+            hikeIn: false,
+            date: new Date(),
+            showCalendar: false,
+            showModal: false
+        });
+    }
+
     render() {
         return (
             <ScrollView>
@@ -47,7 +47,7 @@ class Reservation extends Component {
                     <Picker
                         style={styles.formItem}
                         selectedValue={this.state.campers}
-                        onValueChange={itemValue => this.setState({campers: itemValue})}
+                        onValueChange={itemValue => this.setState({ campers: itemValue })}
                     >
                         <Picker.Item label='1' value='1' />
                         <Picker.Item label='2' value='2' />
@@ -62,15 +62,15 @@ class Reservation extends Component {
                     <Switch
                         style={styles.formItem}
                         value={this.state.hikeIn}
-                        trackColor={{true: '#5637DD', false: null}}
-                        onValueChange={value => this.setState({hikeIn: value})}
+                        trackColor={{ true: '#5637DD', false: null }}
+                        onValueChange={value => this.setState({ hikeIn: value })}
                     />
                 </View>
                 <View style={styles.formRow}>
                     <Text style={styles.formLabel}>Date</Text>
                     <Button
                         onPress={() =>
-                            this.setState({showCalendar: !this.state.showCalendar})
+                            this.setState({ showCalendar: !this.state.showCalendar })
                         }
                         title={this.state.date.toLocaleDateString('en-US')}
                         color='#5637DD'
@@ -83,7 +83,7 @@ class Reservation extends Component {
                         mode={'date'}
                         display='default'
                         onChange={(event, selectedDate) => {
-                            selectedDate && this.setState({date: selectedDate, showCalendar: false});
+                            selectedDate && this.setState({ date: selectedDate, showCalendar: false });
                         }}
                         style={styles.formItem}
                     />
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     formItem: {
         flex: 1
     },
-    modal: { 
+    modal: {
         justifyContent: 'center',
         margin: 20
     },

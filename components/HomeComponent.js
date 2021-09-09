@@ -7,14 +7,14 @@ import Loading from './LoadingComponent';
 
 const mapStateToProps = state => {
     return {
-      campsites: state.campsites,
-      promotions: state.promotions,
-      partners: state.partners
+        campsites: state.campsites,
+        promotions: state.promotions,
+        partners: state.partners
     };
 };
 
 function RenderItem(props) {
-    const {item} = props;
+    const { item } = props;
 
     if (props.isLoading) {
         return <Loading />;
@@ -30,9 +30,9 @@ function RenderItem(props) {
         return (
             <Card
                 featuredTitle={item.name}
-                image={{uri: baseUrl + item.image}}>
-                <Text 
-                    style={{margin: 10}}>
+                image={{ uri: baseUrl + item.image }}>
+                <Text
+                    style={{ margin: 10 }}>
                     {item.description}
                 </Text>
             </Card>

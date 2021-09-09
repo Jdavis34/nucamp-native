@@ -13,9 +13,9 @@ const mapStateToProps = state => {
 
 const Mission = () => {
     return (
-        <Card 
-          wrapperStyle={{ margin: 20 }}
-          title='Our Mission'>
+        <Card
+            wrapperStyle={{ margin: 20 }}
+            title='Our Mission'>
             <Text style={{ margin: 10 }}>
                 We present a curated database of the best campsites in the vast woods
                 and backcountry of the World Wide Web Wilderness. We increase access to
@@ -24,24 +24,24 @@ const Mission = () => {
                 each campsite to make sure that they are up to our standards. We also
                 present a platform for campers to share reviews on campsites they have
                 visited with each other.
-             </Text>
+            </Text>
         </Card>
-      );
-      }
+    );
+}
 
-    class About extends Component {
+class About extends Component {
 
-      static navigationOptions = {
+    static navigationOptions = {
         title: 'About Us',
-      };
+    };
 
-      render() {
-        const renderPartner = ({item}) => {
+    render() {
+        const renderPartner = ({ item }) => {
             return (
                 <ListItem
                     title={item.name}
                     subtitle={item.description}
-                    leftAvatar={{source: {uri: baseUrl + item.image}}}
+                    leftAvatar={{ source: { uri: baseUrl + item.image } }}
                 />
             );
         };
@@ -70,18 +70,18 @@ const Mission = () => {
         }
         return (
             <ScrollView>
-              <Mission />
-              <Card 
-                  title='Community Partners'>
-                  <FlatList 
-                    data={this.props.partners.partners}
-                    renderItem={renderPartner}
-                    keyExtractor={item=>item.id.toString()}
-                  />
-              </Card>
-          </ScrollView>
+                <Mission />
+                <Card
+                    title='Community Partners'>
+                    <FlatList
+                        data={this.props.partners.partners}
+                        renderItem={renderPartner}
+                        keyExtractor={item => item.id.toString()}
+                    />
+                </Card>
+            </ScrollView>
         );
-      }
     }
+}
 
-    export default connect(mapStateToProps)(About);
+export default connect(mapStateToProps)(About);

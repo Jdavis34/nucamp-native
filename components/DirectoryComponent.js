@@ -7,7 +7,7 @@ import Loading from './LoadingComponent';
 
 const mapStateToProps = state => {
     return {
-      campsites: state.campsites
+        campsites: state.campsites
     };
 };
 
@@ -19,18 +19,18 @@ class Directory extends Component {
 
     render() {
         const { navigate } = this.props.navigation;
-        const renderDirectoryItem = ({item}) => {
+        const renderDirectoryItem = ({ item }) => {
             return (
                 <Tile
                     title={item.name}
                     caption={item.description}
                     featured
                     onPress={() => navigate('CampsiteInfo', { campsiteId: item.id })}
-                    imageSrc={{uri: baseUrl + item.image}}
+                    imageSrc={{ uri: baseUrl + item.image }}
                 />
             );
         };
-        
+
         if (this.props.campsites.isLoading) {
             return <Loading />;
         }
